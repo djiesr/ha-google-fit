@@ -1,5 +1,5 @@
 {
-    "name": "Google Fit",
+    "name": "Google Fit Patch",
     "filename": "google_fit.zip",
     "hide_default_branch": true,
     "homeassistant": "2024.1.0",
