@@ -18,6 +18,7 @@ class GoogleFitEntity(CoordinatorEntity):
         super().__init__(coordinator)
         if coordinator.config_entry and coordinator.config_entry.unique_id:
             email = coordinator.config_entry.unique_id
+            username = email.split('@')[0]
             self._attr_device_info = DeviceInfo(
                 identifiers={(DOMAIN, email)},
                 name=f"{NAME} - {email}",
@@ -25,6 +26,7 @@ class GoogleFitEntity(CoordinatorEntity):
                 model="fitness",
                 sw_version="v1",
             )
+            self._username = username
         else:
             raise InvalidStateError(
                 "Unexpected exception. Trying to initialise entity but config entry is None."
