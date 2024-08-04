@@ -1,6 +1,6 @@
 {
   "domain": "google_fit",
-  "name": "Google Fit Patch",
+  "name": "Google Fit",
   "codeowners": [
     "@YorkshireIoT"
   ],
