@@ -46,9 +46,10 @@ class GoogleFitBlueprintSensor(GoogleFitEntity, SensorEntity):
         self.coordinator = coordinator
         # Follow method in core Google Mail component and use oauth session to create unique ID
         if coordinator.oauth_session:
+            username = getattr(self, '_username', 'unknown_user')  # Récupère le nom d'utilisateur
             self._attr_unique_id = (
                 f"{coordinator.oauth_session.config_entry.entry_id}_"
-                + f"{entity_description.key}_{entity_description.data_key}"
+                + f"{username}_{entity_description.key}_{entity_description.data_key}"
             )
         else:
             raise ConfigEntryAuthFailed(
